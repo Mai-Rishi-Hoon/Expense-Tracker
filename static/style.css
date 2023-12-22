@@ -1,0 +1,41 @@
+body{
+    
+    /* background-color: #C2CAD0; */
+}
+.main1{
+    display:flex;
+    position: relative;
+}
+
+.add{
+    border:1px solid black;
+    margin-right: 50px;
+    padding-right: 100px;
+    padding-left: 20px;
+    /* background-color: #afd275; */
+    
+}
+.add:hover{
+    zoom: 120%;
+}
+
+.delete{
+    border:1px solid black;
+    padding-left: 20px;
+    padding-right: 100px;
+    margin-right: 30px;
+    /* background-color: #E7717D; */
+}
+.delete:hover{
+    zoom: 120%
+}
+
+.search{
+    border:1px solid black;
+    padding-left: 20px;
+    padding-right: 120px;
+    margin-right: 20px;
+}
+.search:hover{
+    zoom: 120%
+}

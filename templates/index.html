@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Expense Tracker</h2>
+    <div class = "main1">
+    <div class="add">
+        <h3>Add an Expense</h3>
+        <form method="GET" action="{{ url_for('add_expense') }}">
+
+            Name <input type="text" name="name" id="name"><br><br>
+            Expense Name <input type="text" name="exp_name" id="exp_name"><br><br>
+            Expense <input type="number" name="exp" id="exp"><br><br>
+            Date <input type="date" name="date" id="date"><br><br>
+            <input type="submit" name="add_submit" id="add_submit">
+        </form>
+    </div><br>
+    <div class="delete">
+        <h3>Delete an Expense</h3>
+        <form method="GET" action="{{ url_for('delete_expense') }}">
+            Name <input type="text" name="name" id="name"><br><br>
+            Expense Name <input type="text" name="exp_name" id="exp_name"><br><br>
+            Expense <input type="number" name="exp" id="exp"><br><br>
+            Date <input type="date" name="date" id="date"><br><br>
+            <input type="submit" name="delete_submit" id="delete_submit">
+        </form>
+    </div><br>
+    <div class="search">
+        <h3>Search an Expense</h3>
+        <form method="GET" action="{{ url_for('search_expense') }}">
+            Name <input type="text" name="name" id="name"><br><br>
+            <input type="submit" name="search_submit" id="search_submit">
+            
+        </form>
+    </div>
+    </div>
+        {% if search_results %}
+        <div class="search-results">
+            <h3>Search Results:</h3>
+            <table style="border-collapse: collapse; width: 100%;">
+                <thead>
+                    <tr style="border: 3px solid #dddddd; text-align: left; padding: 8px;">
+                        <th style="border: 3px solid #dddddd; padding: 8px;">Name</th>
+                        <th style="border: 3px solid #dddddd; padding: 8px;">Expense Name</th>
+                        <th style="border: 3px solid #dddddd; padding: 8px;">Expense</th>
+                        <th style="border: 3px solid #dddddd; padding: 8px;">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for record in search_results %}
+                        <tr style="border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                            <td style="border: 1px solid #dddddd; padding: 8px;">{{ record[0] }}</td>
+                            <td style="border: 1px solid #dddddd; padding: 8px;">{{ record[1] }}</td>
+                            <td style="border: 1px solid #dddddd; padding: 8px;">{{ record[2] }}</td>
+                            <td style="border: 1px solid #dddddd; padding: 8px;">{{ record[3] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+</body>
+</html>
