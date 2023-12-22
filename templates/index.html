@@ -7,11 +7,12 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h2>Expense Tracker</h2>
+    <h2>CashComedy</h2>
+    <h3>Expense Tracker</h3>
     <div class = "main1">
     <div class="add">
         <h3>Add an Expense</h3>
-        <form method="GET" action="{{ url_for('add_expense') }}">
+        <form method="POST" action="{{ url_for('add_expense') }}">
 
             Name <input type="text" name="name" id="name"><br><br>
             Expense Name <input type="text" name="exp_name" id="exp_name"><br><br>
@@ -22,7 +23,7 @@
     </div><br>
     <div class="delete">
         <h3>Delete an Expense</h3>
-        <form method="GET" action="{{ url_for('delete_expense') }}">
+        <form method="POST" action="{{ url_for('delete_expense') }}">
             Name <input type="text" name="name" id="name"><br><br>
             Expense Name <input type="text" name="exp_name" id="exp_name"><br><br>
             Expense <input type="number" name="exp" id="exp"><br><br>
